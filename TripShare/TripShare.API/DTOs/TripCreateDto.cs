@@ -1,19 +1,16 @@
-﻿using Microsoft.VisualBasic;
-
-namespace TripShare.API.Models
+﻿namespace TripShare.API.DTOs
 {
-    public class Trip
+    public class TripCreateDto
     {
-        public int TripId { get; set; }
         public string StartLocation { get; set; } = string.Empty;
         public string Destination { get; set; } = string.Empty;
 
         public DateTime TravelDate { get; set; }
         public int SeatAvailable { get; set; }
         public string Status { get; set; } = string.Empty;
-        public int UserId { get; set; }
-        public User? User { get; set; }
-
-
+        public int UserId
+        {
+            get; set;
+        }
     }
 }

@@ -13,14 +13,16 @@ namespace TripShare.API
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddDbContext<AppDbContext>(sabin => sabin.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
-            builder.Services.AddOpenApi();
+            builder.Services.AddSwaggerGen();
+
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
